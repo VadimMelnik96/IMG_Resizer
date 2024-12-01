@@ -10,7 +10,7 @@ from src.app.responses.status_response import StatusResponse
 from src.app.responses.upload_responses import UploadResponse
 from src.services.interfaces import IUploadService
 
-router = APIRouter()
+router = APIRouter(tags=["Images"])
 
 
 @router.post("/upload")

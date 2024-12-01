@@ -15,4 +15,4 @@ class IUploadService(abc.ABC):
 
     @abc.abstractmethod
     async def get_task_status(self, task_id: uuid.UUID) -> StatusResponse:
-        """Интерфейс метода получения сведений о задаче изменения файловй"""
+        """Интерфейс метода получения сведений о задаче изменения файлов"""

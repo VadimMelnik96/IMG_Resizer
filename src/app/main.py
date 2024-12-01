@@ -10,10 +10,11 @@ from src.infrastructure.settings.settings import settings, RedisSettings
 
 
 def create_app() -> FastAPI:
-    application = FastAPI(
+    """Генерация приложения"""
+    application = FastAPI(title=settings.app.name
     )
     application.include_router(router)
-    container = make_async_container(ApplicationProvider(), FastapiProvider(), RedisProvider(),context={RedisSettings: settings.redis})
+    container = make_async_container(ApplicationProvider(), FastapiProvider(), RedisProvider(), context={RedisSettings: settings.redis})
     setup_dishka(container, application)
     application.include_router(router)
     for exception, handler in exception_config.items():
@@ -22,11 +23,3 @@ def create_app() -> FastAPI:
 
 
 app = create_app()
-
-#
-# @app.on_event("startup")
-# async def startup_event() -> None:
-#     ...
-    # container.gateways.config.kafka.faust_app_type.override("producer")
-    # container.init_resources()
-

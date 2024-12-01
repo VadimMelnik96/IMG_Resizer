@@ -1,11 +1,6 @@
-import contextlib
-from datetime import timedelta
-from types import NoneType
-from typing import Any, AsyncGenerator, AsyncIterator, Awaitable, Generic, Iterable, Iterator, Union
+from typing import Any
 
-import redis
 from redis.asyncio import Redis
-from redis.asyncio.client import Pipeline
 
 from src.infrastructure.storages.interfaces import IRedisStorage
 
